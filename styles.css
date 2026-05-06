@@ -30,6 +30,7 @@ body {
     radial-gradient(circle at top, rgba(207, 166, 58, 0.18), transparent 28%),
     radial-gradient(circle at 80% 20%, rgba(156, 16, 16, 0.2), transparent 26%),
     linear-gradient(180deg, #140d09 0%, #090909 50%, #120c09 100%);
+  overflow-x: hidden; /* ← prevents unwanted horizontal scroll */
 }
 
 body::before {
@@ -62,14 +63,18 @@ img {
   padding-bottom: 56px;
 }
 
+/* ========== FIXED HEADER – full width, no gaps ========== */
 .topbar {
   position: sticky;
   top: 0;
   z-index: 20;
   width: 100%;
+  margin: 0;               /* ← remove any default margin */
+  padding: 0;              /* ← remove any internal padding that could break width */
   background: linear-gradient(180deg, rgba(8, 8, 8, 0.96), rgba(8, 8, 8, 0.78));
   border-bottom: 1px solid rgba(246, 240, 223, 0.08);
   backdrop-filter: blur(18px);
+  box-sizing: border-box;
 }
 
 .topbar-inner {
@@ -82,6 +87,7 @@ img {
   padding: 18px 0;
 }
 
+/* ========== rest of your styles – untouched ========== */
 .brand {
   display: flex;
   align-items: center;
